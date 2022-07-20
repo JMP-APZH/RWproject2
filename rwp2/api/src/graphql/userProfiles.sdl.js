@@ -1,8 +1,20 @@
 export const schema = gql`
+
+enum City {
+  SAINTELUCE
+  RIVIERESALEE
+  FORTDEFRANCE
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
   type UserProfile {
     id: Int!
-    city: [String]!
-    gender: [String]!
+    city: City!
+    gender: Gender!
     createdAt: DateTime!
   }
 
@@ -12,13 +24,13 @@ export const schema = gql`
   }
 
   input CreateUserProfileInput {
-    city: [String]!
-    gender: [String]!
+    city: City!
+    gender: Gender!
   }
 
   input UpdateUserProfileInput {
-    city: [String]!
-    gender: [String]!
+    city: City!
+    gender: Gender!
   }
 
   type Mutation {
