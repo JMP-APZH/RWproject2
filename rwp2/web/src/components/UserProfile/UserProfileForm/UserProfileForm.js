@@ -10,13 +10,6 @@ import {
 
 import { City, Gender } from "@prisma/client";
 
-
-// export const City: {
-//   SAINTELUCE,
-//   RIVIERESALEE,
-//   FORTDEFRANCE
-// };
-
 const UserProfileForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.userProfile?.id)
