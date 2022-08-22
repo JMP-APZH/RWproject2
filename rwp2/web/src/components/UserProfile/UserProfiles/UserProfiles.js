@@ -82,6 +82,8 @@ const UserProfilesList = ({ userProfiles }) => {
             <th>Id</th>
             <th>City</th>
             <th>Gender</th>
+            <th>Bio</th>
+            <th>UserId</th>
             <th>Created at</th>
             <th>&nbsp;</th>
           </tr>
@@ -92,6 +94,8 @@ const UserProfilesList = ({ userProfiles }) => {
               <td>{truncate(userProfile.id)}</td>
               <td>{truncate(userProfile.city)}</td>
               <td>{truncate(userProfile.gender)}</td>
+              <td>{truncate(userProfile.bio)}</td>
+              <td>{truncate(userProfile.userId)}</td>
               <td>{timeTag(userProfile.createdAt)}</td>
               <td>
                 <nav className="rw-table-actions">

@@ -1,3 +1,4 @@
+// import { prisma } from '@redwoodjs/api'
 import { db } from 'src/lib/db'
 
 export const userProfiles = () => {
@@ -28,3 +29,28 @@ export const deleteUserProfile = ({ id }) => {
     where: { id },
   })
 }
+
+export const userprofileCount = () => {
+  return db.userProfile.count()
+}
+
+// export const cityCounts1 = await prisma.userprofile.aggregate({
+//   _count: {
+//     city: true,
+//   },
+// })
+
+// export const cityCounts2 = await db.userProfile.aggregate({
+//   _count: {
+//     city: true,
+//   },
+// })
+
+export const cityCounts3 = () => {
+  return db.userProfile.aggregate({
+    _count: {
+      city: RIVIERESALEE,
+    },
+  })
+}
+

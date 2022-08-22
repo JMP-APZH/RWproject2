@@ -3320,6 +3320,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@prisma/prisma-fmt-wasm@npm:4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826":
+  version: 4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826
+  resolution: "@prisma/prisma-fmt-wasm@npm:4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826"
+  checksum: d2beb97e5c19299ec589e96c207ad34676c3de9aeb68cfc42d3688c41c1d03beaea8d52eae4ec6397160d9b4a9e98b9f184faa78dbfbd60dd987e9264f942e9a
+  languageName: node
+  linkType: hard
+
 "@prisma/sdk@npm:3.15.2":
   version: 3.15.2
   resolution: "@prisma/sdk@npm:3.15.2"
@@ -19163,6 +19170,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"prettier-plugin-prisma@npm:^4.2.0":
+  version: 4.2.0
+  resolution: "prettier-plugin-prisma@npm:4.2.0"
+  dependencies:
+    "@prisma/prisma-fmt-wasm": 4.2.0-33.2920a97877e12e055c1333079b8d19cee7f33826
+  peerDependencies:
+    prettier: ">=2"
+  checksum: 0bc3e8ff496e79ad1a800b5ddad35f522421a47c37b953c267571259f3b8af940058ba200ae0c4dd829a9f6ff5fd1aa283f90abc95b92a597fe1e35c77e1bb2c
+  languageName: node
+  linkType: hard
+
 "prettier@npm:2.7.1, prettier@npm:^2.6.2":
   version: 2.7.1
   resolution: "prettier@npm:2.7.1"
@@ -20569,6 +20587,7 @@ __metadata:
     "@redwoodjs/core": ^2.1.0
     autoprefixer: ^10.4.7
     postcss: ^8.4.14
+    prettier-plugin-prisma: ^4.2.0
     tailwindcss: ^3.1.6
   languageName: unknown
   linkType: soft

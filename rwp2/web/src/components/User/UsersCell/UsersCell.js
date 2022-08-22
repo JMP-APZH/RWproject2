@@ -10,6 +10,7 @@ export const QUERY = gql`
       name
       createdAt
     }
+    userCount
   }
 `
 
@@ -30,6 +31,15 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ users }) => {
-  return <Users users={users} />
+export const Success = ({ users, userCount }) => {
+  return (
+    <>
+      <Users
+        users={users}
+      />
+      <p>
+            Number of users created (from the usersCell): {userCount}
+      </p>
+    </>
+  )
 }

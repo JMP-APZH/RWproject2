@@ -6,7 +6,8 @@ import { PrismaClient } from '@prisma/client';
 
 
 
-const HomePage = () => {
+
+const HomePage = ({ users, userCount }) => {
 
   // const prisma = new PrismaClient();
 
@@ -42,9 +43,24 @@ const HomePage = () => {
         <UserProfilesCell />
       </div>
 
-      <div>
-        Where the first data analysis will come...
-        {/* The number of created user is: {data} */}
+      <div
+        className="p-4"
+        userCount={userCount}
+      >
+        <p>
+          Where the first data analysis will come here...
+        </p>
+        <div userCount={userCount}>
+        {/* <UsersCell
+          userCount={userCount}
+        /> */}
+          <p userCount={userCount}>
+            Number of users created (from the HomePage): {userCount}
+          </p>
+          <p>
+            Number of Userprofiles created:
+          </p>
+        </div>
       </div>
 
     </>

@@ -9,6 +9,7 @@ export const schema = gql`
   type Query {
     users: [User!]! @requireAuth
     user(id: Int!): User @requireAuth
+    userCount: Int! @skipAuth
   }
 
   input CreateUserInput {

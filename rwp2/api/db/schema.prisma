@@ -13,21 +13,23 @@ generator client {
 // to create migrations for them and apply to your dev DB.
 // TODO: Please remove the following example:
 model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
-  createdAt DateTime @default(now())
+  id          Int          @id @default(autoincrement())
+  email       String       @unique
+  name        String?
+  createdAt   DateTime     @default(now())
+  userprofile UserProfile?
 }
-
-
 
 model UserProfile {
   id        Int      @id @default(autoincrement())
   city      City
   gender    Gender
+  bio       String
   // city1      String[] @default(["Sainte-Luce", "Rivière-Salée", "Fort-de-France"])
   // gender    String[] @default(["Male", "Female", "Other"])
   createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id])
+  userId    Int @unique
 }
 
 enum City {

@@ -7,6 +7,7 @@ export const QUERY = gql`
       city
       gender
       createdAt
+      # cityCounts3
     }
   }
 `

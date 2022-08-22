@@ -6,13 +6,17 @@ import {
   Submit,
   SelectField,
   RadioField,
+  TextAreaField,
+  InputField,
+  NumberField,
 } from '@redwoodjs/forms'
 
-import { City, Gender } from "@prisma/client";
+import { City, Gender } from "@prisma/client/index.d.ts";
 
 const UserProfileForm = (props) => {
   const onSubmit = (data) => {
     props.onSave(data, props?.userProfile?.id)
+    console.log(data)
   }
 
   return (
@@ -55,9 +59,9 @@ const UserProfileForm = (props) => {
           // multiple={true}
         >
           <option>Please select an option</option>
-          <option>SAINTELUCE</option>
-          <option>RIVIERESALEE</option>
-          <option>FORTDEFRANCE</option>
+          <option>Sainte-Luce</option>
+          <option>Rivière-Salée</option>
+          <option>Fort-de-France</option>
         </SelectField>
 
         <FieldError name="city" className="rw-field-error" />
@@ -85,6 +89,46 @@ const UserProfileForm = (props) => {
         </SelectField>
 
         <FieldError name="gender" className="rw-field-error" />
+
+        <Label
+          name="bio"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          Bio
+        </Label>
+
+        <TextAreaField
+          defaultValue={props.userProfile?.Bio}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+          name="bio"
+        >
+
+        </TextAreaField>
+
+        <FieldError name="bio" className="rw-field-error" />
+
+        <Label
+          name="userId"
+          className="rw-label"
+          errorClassName="rw-label rw-label-error"
+        >
+          UserId
+        </Label>
+
+        <NumberField
+          defaultValue={props.userProfile?.UserId}
+          className="rw-input"
+          errorClassName="rw-input rw-input-error"
+          validation={{ required: true }}
+          name="userId"
+        >
+
+        </NumberField>
+
+        <FieldError name="userId" className="rw-field-error" />
 
 
         <div className="rw-button-group">

@@ -28,3 +28,7 @@ export const deleteUser = ({ id }) => {
     where: { id },
   })
 }
+
+export const userCount = () => {
+  return db.user.count()
+}

@@ -8,7 +8,10 @@ export const QUERY = gql`
       id
       city
       gender
+      bio
+      userId
       createdAt
+      # cityCounts3
     }
   }
 `
