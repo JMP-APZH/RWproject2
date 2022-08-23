@@ -54,3 +54,14 @@ export const cityCounts3 = () => {
   })
 }
 
+export const usercountbyCity = () => {
+  return db.userProfile.groupBy({
+    by: ['city'],
+    _count: {
+      city: true,
+    },
+  })
+}
+
+
+

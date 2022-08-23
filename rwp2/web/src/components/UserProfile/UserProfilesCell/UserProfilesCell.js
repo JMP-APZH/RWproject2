@@ -13,6 +13,8 @@ export const QUERY = gql`
       createdAt
       # cityCounts3
     }
+    userprofileCount
+    usercountbyCity
   }
 `
 
@@ -33,6 +35,19 @@ export const Failure = ({ error }) => (
   <div className="rw-cell-error">{error.message}</div>
 )
 
-export const Success = ({ userProfiles }) => {
-  return <UserProfiles userProfiles={userProfiles} />
+export const Success = ({ userProfiles, userprofileCount, usercountbyCity }) => {
+  console.log({usercountbyCity})
+  return (
+    <>
+      <p>
+      {userprofileCount} userprofile have been created (from the userprofilesCells)
+      </p>
+      <UserProfiles userProfiles={userProfiles} />
+
+      <p>
+       Something will happen here: {usercountbyCity}
+      </p>
+    </>
+  )
+
 }

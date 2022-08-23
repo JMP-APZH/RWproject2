@@ -59,9 +59,9 @@ const UserProfileForm = (props) => {
           // multiple={true}
         >
           <option>Please select an option</option>
-          <option>Sainte-Luce</option>
-          <option>Rivière-Salée</option>
-          <option>Fort-de-France</option>
+          <option>{City.SAINTELUCE}</option>
+          <option>RIVIERESALEE</option>
+          <option>FORTDEFRANCE</option>
         </SelectField>
 
         <FieldError name="city" className="rw-field-error" />
