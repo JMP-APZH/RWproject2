@@ -14,7 +14,10 @@ export const QUERY = gql`
       # cityCounts3
     }
     userprofileCount
-    usercountbyCity
+    usercountbyCity {
+      city
+      numberOfUser
+    }
   }
 `
 
@@ -39,14 +42,20 @@ export const Success = ({ userProfiles, userprofileCount, usercountbyCity }) => 
   console.log({usercountbyCity})
   return (
     <>
-      <p>
-      {userprofileCount} userprofile have been created (from the userprofilesCells)
+      <p className='p-2'>
+      {userprofileCount} userprofiles have been created (count from the userprofilesCells)
       </p>
       <UserProfiles userProfiles={userProfiles} />
 
       <p>
-       Something will happen here: {usercountbyCity}
+       Something will happen here: {JSON.stringify(usercountbyCity)} (--where the usercountbycity--)
       </p>
+      {usercountbyCity.map((item) => (
+      <div key={item.city}>
+        <h2>{item.city}</h2>
+        <p>{item.numberOfUser}</p>
+      </div> 
+))}
     </>
   )
 

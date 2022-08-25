@@ -37,8 +37,8 @@ export const Success = ({ users, userCount }) => {
       <Users
         users={users}
       />
-      <p>
-            Number of users created (from the usersCell): {userCount}
+      <p className='p-2'>
+            Number of users created (count from the usersCell): {userCount}
       </p>
     </>
   )

@@ -7,7 +7,10 @@ import { logger } from 'src/lib/logger'
 import services from 'src/services/**/*.{js,ts}'
 
 export const handler = createGraphQLHandler({
-  loggerConfig: { logger, options: {} },
+  loggerConfig: { logger, options: {
+    query: true,
+    data: true
+  } },
   directives,
   sdls,
   services,

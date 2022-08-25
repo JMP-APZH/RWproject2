@@ -1,5 +1,6 @@
 // import { prisma } from '@redwoodjs/api'
 import { db } from 'src/lib/db'
+import { logger } from 'src/lib/logger'
 
 export const userProfiles = () => {
   return db.userProfile.findMany()
@@ -54,13 +55,26 @@ export const cityCounts3 = () => {
   })
 }
 
-export const usercountbyCity = () => {
-  return db.userProfile.groupBy({
+
+
+export const usercountbyCity = async () => {
+  const result = await db.userProfile.groupBy({
     by: ['city'],
     _count: {
       city: true,
     },
   })
+  // const mappedCity = result.map((item) => {
+  //   city: item.city,
+  //   numberOfUser: item['_count'].city
+  // })
+  // return (mappedCity)
+  logger.debug({custom: result}, 'result from Prisma')
+  const mappedCity = result.map((item) => { return {
+    city: item.city,
+    numberOfUser: item['_count'].city
+  }})
+  return mappedCity
 }
 
 
