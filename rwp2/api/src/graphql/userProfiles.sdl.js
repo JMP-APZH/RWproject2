@@ -43,6 +43,11 @@ enum Gender {
     numberOfUser: Int!
   }
 
+  type GenderCount {
+    gender: String!
+    numbofUserG: Int!
+  }
+
 
   type Query {
     userProfiles: [UserProfile!]! @requireAuth
@@ -63,6 +68,7 @@ enum Gender {
     #   _count,
     #   city
     # }
+    usercountbyGender: [GenderCount] @skipAuth
   }
 
   input CreateUserProfileInput {

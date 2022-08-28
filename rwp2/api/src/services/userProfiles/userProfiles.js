@@ -77,5 +77,20 @@ export const usercountbyCity = async () => {
   return mappedCity
 }
 
+export const usercountbyGender = async () => {
+  const result = await db.userProfile.groupBy({
+    by: ['gender'],
+    _count: {
+      gender: true,
+    },
+  })
+  logger.debug({custom: result}, 'result from Prisma')
+  const mappedGender = result.map((item) => { return {
+    gender: item.gender,
+    numbofUserG: item['_count'].gender
+  }})
+  return mappedGender
+}
+
 
 
