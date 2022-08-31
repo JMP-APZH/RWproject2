@@ -47,19 +47,19 @@ const HomePage = ({ users, userCount }) => {
         className="p-4"
         userCount={userCount}
       >
-        <p>
+        {/* <p>
           Where the first data analysis will come here...
-        </p>
+        </p> */}
         <div userCount={userCount}>
         {/* <UsersCell
           userCount={userCount}
         /> */}
-          <p userCount={userCount}>
+          {/* <p userCount={userCount}>
             Number of users created (from the HomePage): {userCount}
-          </p>
-          <p>
+          </p> */}
+          {/* <p>
             Number of Userprofiles created:
-          </p>
+          </p> */}
         </div>
       </div>
 

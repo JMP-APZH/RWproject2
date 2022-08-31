@@ -24,6 +24,15 @@ export const QUERY = gql`
     }
   }
 `
+const MAX_STRING_LENGTH = 150
+
+const truncate = (text) => {
+  let output = text
+  if (text && text.length > MAX_STRING_LENGTH) {
+    output = output.substring(0, MAX_STRING_LENGTH) + '...'
+  }
+  return output
+}
 
 export const Loading = () => <div>Loading...</div>
 
@@ -69,6 +78,7 @@ export const Success = ({ userProfiles, userprofileCount, usercountbyCity, userc
         <p className='pb-2 underline underline-offset-2 text-3xl'>Registered Users by City and in % of the total ({userprofileCount} users):</p>
       {usercountbyCity.map((item) => (
         <div key={item.city} className='flex flex-row justify-between p-2 w-72 border border-spacing-1 bg-gray-300'>
+
               <h2 className='pt-3 font-bold text-xl'>{item.city}</h2>
               <h2 className='p-3 ml-4 bg-green-500 rounded-3xl font-semibold text-white'> {item.numberOfUser}</h2>
               <p className='p-2 ml-4 bg-blue-400 rounded-3xl font-semibold text-white'>{item.numberOfUser/userprofileCount*100} %</p>
@@ -76,7 +86,31 @@ export const Success = ({ userProfiles, userprofileCount, usercountbyCity, userc
       ))}
       </p>
 
-      <p className='p-2'>
+      <div className='p-2'>
+      <table className="p-2 bg-white text-center table-auto border-separate border-spacing-2 border border-slate-500">
+      <thead className='bg-gray-300 text-center border-solid'>
+          <tr className='text-center border border-solid'>
+            <th className='text-center border border-solid'>City</th>
+            <th className='px-2'>Number of Users</th>
+            <th className='px-2'>% of Total Users</th>
+            {/* <th>&nbsp;</th> */}
+          </tr>
+        </thead>
+
+        <tbody className='bg-green-200'>
+        {usercountbyCity.map((item) => (
+          <tr key={item.city}>
+          <td className='font-bold text-left'>{truncate(item.city)}</td>
+          <td>{truncate(item.numberOfUser)}</td>
+          <td>{truncate(item.numberOfUser/userprofileCount*100)} %</td>
+          </tr>
+        ))}
+        </tbody>
+
+      </table>
+      </div>
+
+      {/* <p className='p-2'>
         Here will be displayed the list of Users by Gender:
         {usercountbyGender.map((item) => (
             <div key={item.gender}>
@@ -84,18 +118,43 @@ export const Success = ({ userProfiles, userprofileCount, usercountbyCity, userc
               <p>{item.numbofUserG}</p>
             </div>
         ))}
-      </p>
+      </p> */}
 
       <p className='p-2'>
       <p className='pb-2 underline underline-offset-2 text-3xl'>Registered Users by Gender and in % of the total ({userprofileCount} users):</p>
         {usercountbyGender.map((item) => (
-            <div key={item.gender} className='flex flex-row justify-between p-2 w-72 border border-spacing-1 bg-gray-300'>
-              <h2 className='pt-3 font-bold text-xl'>{item.gender}</h2>
-              <h2 className='p-3 ml-4 bg-green-500 rounded-3xl font-semibold text-white'> {item.numbofUserG}</h2>
-              <p className='p-2 ml-4 bg-blue-400 rounded-3xl font-semibold text-white'>{item.numbofUserG/userprofileCount*100} %</p>
+            <div key={item.gender} className='flex flex-row justify-between p-2 w-72 border border-spacing-1 bg-black'>
+              <h2 className='text-white pt-3 font-bold text-xl'>{item.gender}</h2>
+              <h2 className='p-3 ml-4 bg-green-500 shadow-white shadow-3xl rounded-3xl font-semibold text-white'> {item.numbofUserG}</h2>
+              <p className='p-2 ml-4 bg-blue-400 shadow-2xl shadow-blue-400/50 rounded-3xl font-semibold text-white'>{item.numbofUserG/userprofileCount*100} %</p>
             </div>
         ))}
       </p>
+
+      <div className='p-2'>
+      <table className="p-2 bg-white text-center table-auto border-separate border-spacing-2 border border-slate-500">
+      <thead className='bg-gray-300 text-center border-solid'>
+          <tr className='text-center border border-solid'>
+            <th className='text-center border border-solid'>Gender</th>
+            <th className='px-2'>Number of Users</th>
+            <th className='px-2'>% of Total Users</th>
+            {/* <th>&nbsp;</th> */}
+          </tr>
+        </thead>
+
+        <tbody className='bg-green-200'>
+        {usercountbyGender.map((item) => (
+          <tr key={item.gender}>
+          <td className='font-bold text-left px-2'>{truncate(item.gender)}</td>
+          <td>{truncate(item.numbofUserG)}</td>
+          <td>{truncate(item.numbofUserG/userprofileCount*100)} %</td>
+          </tr>
+        ))}
+        </tbody>
+
+      </table>
+      </div>
+
     </>
   )
 
