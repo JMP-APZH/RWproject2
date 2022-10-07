@@ -24,6 +24,9 @@ const Rwp2Layout = ({ children }) => {
             <li className="text-center w-36 rounded-md font-bold bg-sky-500 hover:bg-sky-300">
               <Link to={routes.newUserProfile()}>New User Profiles</Link>
             </li>
+            <li className="text-center w-36 rounded-md font-bold bg-sky-500 hover:bg-sky-300">
+              <Link to={routes.chart()}>Charts</Link>
+            </li>
           </ul>
         </nav>
         </div>

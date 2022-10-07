@@ -17,6 +17,7 @@ import Rwp2Layout from './layouts/Rwp2Layout/Rwp2Layout'
 const Routes = () => {
   return (
     <Router>
+
       {/* <Route path="/" page={HomePage} name="home" /> */}
       <Set wrap={UserProfilesLayout}>
         {/* <Route path="/user-profiles/new" page={UserProfileNewUserProfilePage} name="newUserProfile" /> */}
@@ -36,6 +37,7 @@ const Routes = () => {
         <Route path="/users/new" page={UserNewUserPage} name="newUser" />
         <Route path="/users" page={UserUsersPage} name="users" />
         <Route path="/user-profiles/new" page={UserProfileNewUserProfilePage} name="newUserProfile" />
+        <Route path="/chart" page={ChartPage} name="chart" />
       </Set>
 
       <Route notfound page={NotFoundPage} />
